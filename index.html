@@ -124,6 +124,10 @@
   <div class="bg-[#4B2411] text-[#F5EFE6] text-xs py-2 px-4 border-b border-[#C59B82]/40">
     <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
+        <button id="btnOpenLoginLadonna" type="button" onclick="openLoginModalLadonna()" class="px-3.5 py-2 rounded-full text-xs font-semibold text-[#4B2411] bg-white border border-[#C59B82]/60 hover:bg-[#F5EFE6] transition flex items-center gap-1.5 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-[#A6785D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span id="txtBtnLoginLadonna">Entrar / Anamnese</span>
+        </button>
         <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
         <span><strong id="topBarSalonName">La Donna Studio — Hair &amp; Nails</strong> · <span id="topBarSchedule">Terça a Sábado, das 09h às 19h</span></span>
       </div>
@@ -193,6 +197,56 @@
   </header>
 
   <main id="topo">
+    
+    <!-- =====================================================================
+         ÁREA RESTRITA DA CLIENTE & FICHA DE ANAMNESE (Doc 110 Argon)
+         ===================================================================== -->
+    <section id="areaRestritaClienteLadonna" class="hidden mb-8 max-w-6xl mx-auto px-4 pt-6">
+      <div class="luxury-card rounded-3xl p-6 sm:p-8 border-2 border-[#C59B82] bg-white shadow-xl space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#C59B82]/20">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-medium mb-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Sessão Autenticada · Área da Cliente
+            </div>
+            <h2 class="text-2xl font-serif-title font-bold text-[#4B2411]">Ficha de Anamnese &amp; Histórico Exclusivo</h2>
+            <p id="userIdentidadeLadonna" class="text-xs text-[#8C5E44] mt-0.5">Conectada: andre8166@hotmail.com · Perfil VIP La Donna</p>
+          </div>
+          <button onclick="fazerLogoutLadonna()" class="px-4 py-2 rounded-full bg-rose-50 border border-rose-300 text-rose-700 text-xs font-semibold hover:bg-rose-100 transition">
+            Encerrar Sessão
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Card 1: Anamnese Capilar -->
+          <div class="p-5 rounded-2xl bg-[#F5EFE6]/70 border border-[#C59B82]/30 space-y-2">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-[#8C5E44]">Diagnóstico &amp; Anamnese Capilar</div>
+            <div class="text-base font-bold text-[#4B2411]">Fio Médio 2B · Porosidade Neutra</div>
+            <p class="text-xs text-[#555] leading-relaxed">Último procedimento: <strong>Alinhamento Térmico + Banho de Brilho</strong> realizado em 08/11/2026. Teste de mecha com 100% de integridade estrutural.</p>
+            <div class="text-[11px] text-[#A6785D] font-medium pt-1">Recomendação: Cronograma com Máscara Acidificante</div>
+          </div>
+
+          <!-- Card 2: Anamnese Facial & Cuidados -->
+          <div class="p-5 rounded-2xl bg-[#F5EFE6]/70 border border-[#C59B82]/30 space-y-2">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-[#8C5E44]">Estética Facial &amp; Cuidados</div>
+            <div class="text-base font-bold text-[#4B2411]">Limpeza de Pele Profunda</div>
+            <p class="text-xs text-[#555] leading-relaxed">Extração por sucção + alta frequência bactericida. Pele hidratada com sérum de Ácido Hialurônico e proteção solar FPS 50 toque seco.</p>
+            <div class="text-[11px] text-[#A6785D] font-medium pt-1">Próxima sessão sugerida: Dezembro/2026</div>
+          </div>
+
+          <!-- Card 3: Próximo Agendamento e Lembrete 24h -->
+          <div class="p-5 rounded-2xl bg-[#F5EFE6]/70 border border-[#C59B82]/30 space-y-2">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-[#8C5E44]">Próxima Vaga Confirmada</div>
+            <div class="text-base font-bold text-[#4B2411]">Esmaltação em Gel + Pedicure</div>
+            <p class="text-xs text-[#555] leading-relaxed">Horário: <strong>Quinta-feira às 14h30</strong> com a especialista Camila. Duração estimada: 1h15 min.</p>
+            <div class="p-2.5 rounded-xl bg-emerald-100/70 border border-emerald-300 text-[11px] text-emerald-900 font-semibold flex items-center gap-1.5">
+              <span>🔔</span> Lembrete WhatsApp 24h ativo: responder SIM na véspera.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- =====================================================================
          2. BANNER PRINCIPAL (HERO SECTION)
          ===================================================================== -->
@@ -1789,5 +1843,60 @@
       });
     });
   </script>
+
+  <!-- =====================================================================
+       MODAL DE LOGIN (E-mail e Senha) — La Donna Studio (Doc 110 Argon)
+       ===================================================================== -->
+  <div id="modalLoginLadonna" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+    <div class="w-full max-w-md rounded-3xl bg-white border-2 border-[#C59B82] p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      <button onclick="closeLoginModalLadonna()" class="absolute right-4 top-4 w-8 h-8 rounded-full bg-[#F5EFE6] hover:bg-[#EBDDCF] text-[#4B2411] flex items-center justify-center text-sm font-bold">
+        ✕
+      </button>
+
+      <div class="space-y-1">
+        <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8C5E44] uppercase tracking-wider">
+          <svg class="w-4 h-4 text-[#A6785D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Área Exclusiva da Cliente
+        </div>
+        <h3 class="text-2xl font-serif-title font-bold text-[#4B2411]">Acesse sua Ficha</h3>
+        <p class="text-xs text-gray-500">Consulte seu histórico de atendimentos, ficha de anamnese capilar/facial e pontos.</p>
+      </div>
+
+      <div id="loginFeedbackLadonna" class="hidden p-3 rounded-xl text-xs font-semibold"></div>
+
+      <form id="formLoginLadonna" onsubmit="realizarLoginLadonna(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-[#4B2411] mb-1">E-mail Cadastrado</label>
+          <input type="email" id="loginEmailLadonna" required placeholder="seuemail@exemplo.com" class="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAFA] border border-[#C59B82]/50 text-gray-800 text-sm focus:outline-none focus:border-[#A6785D]" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#4B2411] mb-1">Senha de Acesso</label>
+          <input type="password" id="loginSenhaLadonna" required placeholder="••••••••••••" class="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAFA] border border-[#C59B82]/50 text-gray-800 text-sm focus:outline-none focus:border-[#A6785D]" />
+        </div>
+
+        <div class="flex items-center justify-between text-xs">
+          <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+            <input type="checkbox" id="chkLembrarLadonna" class="rounded border-gray-300 text-[#A6785D]" />
+            <span>Lembrar meu acesso</span>
+          </label>
+          <a href="https://wa.me/5551999999999?text=Ol%C3%A1!%20Esqueci%20minha%20senha%20de%20acesso%20ao%20portal%20La%20Donna%20Studio." target="_blank" class="text-[#A6785D] hover:underline">
+            Esqueceu a senha?
+          </a>
+        </div>
+
+        <button type="submit" id="btnSubmitLoginLadonna" class="w-full py-3.5 rounded-xl rose-gold-gradient text-white font-bold text-sm shadow-md hover:opacity-95 transition flex items-center justify-center gap-2">
+          <span>Acessar Ficha &amp; Agendamentos</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </form>
+
+      <div class="p-3 rounded-xl bg-[#F5EFE6] border border-[#C59B82]/30 text-[11px] text-[#8C5E44] flex items-center gap-2">
+        <span>🔒</span>
+        <span>Acesso protegido. Suas fichas de diagnóstico capilar são confidenciais.</span>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
