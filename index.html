@@ -32,7 +32,25 @@
       "addressCountry": "BR"
     }
   }
-  </script>
+  
+  function openLoginModalLadonna() {
+    const m = document.getElementById('modalLoginLadonna');
+    if (m) {
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+  }
+  function closeLoginModalLadonna() {
+    const m = document.getElementById('modalLoginLadonna');
+    if (m) {
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+  }
+  window.openLoginModalLadonna = openLoginModalLadonna;
+  window.closeLoginModalLadonna = closeLoginModalLadonna;
+
+</script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
